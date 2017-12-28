@@ -1,0 +1,29 @@
+﻿@model SE406_Saguay.StatusCodeViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "StatusCode", FormMethod.Post))
+            {
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewStatusCode.StatusName)
+                        @Html.TextBoxFor(Model => Model.NewStatusCode.StatusName,
+                     new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewStatusCode.StatusName"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-lg" />
+                        <div class="btn btn-lg">
+                            @Html.ActionLink("Back to Status Codes", "Index")
+                        </div>
+
+                    </div>
+            }
+        </div>
+    </div>
+</div>

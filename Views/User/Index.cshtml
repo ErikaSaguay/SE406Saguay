@@ -1,0 +1,78 @@
+﻿@model SE406_Saguay.UserViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@if (TempData["ResultMessage"] != null)
+{
+    <p class="alert alert-success" id="successMessage">
+        @TempData["ResultMessage"]
+    </p>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "User", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewUser.FirstName)
+                    @Html.TextBoxFor(Model => Model.NewUser.FirstName,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewUser.FirstName"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewUser.LastName)
+                    @Html.TextBoxFor(Model => Model.NewUser.LastName,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewUser.LastName"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewUser.Email)
+                    @Html.TextBoxFor(Model => Model.NewUser.Email,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewUser.Email"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewUser.Password)
+                    @Html.TextBoxFor(Model => Model.NewUser.Password,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewUser.Password"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2> List of Status Codes:</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>UserID</th>
+                        <th>First Name</th>
+                        <th>StatusCodeId</th>
+                        <th>Email</th>
+
+                    </tr>
+                    @foreach (var users in Model.UserList)
+                    {
+                        <tr>
+                            <td>@users.UserID</td>
+                            <td>@users.FirstName</td>
+                            <td>@users.LastName</td>
+                            <td>@users.Email</td>
+                            <td><a asp-action="Edit" asp-route-id="@users.UserID">Edit</a></td>
+                            <td><a asp-action="Delete" asp-route-id="@users.UserID" onclick='return confirm("Are your sure?");'>Delete</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

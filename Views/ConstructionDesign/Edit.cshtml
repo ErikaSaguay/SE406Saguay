@@ -1,0 +1,31 @@
+﻿@model SE406_Saguay.ConstructionDesignViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "ConstructionDesign", FormMethod.Post))
+            {
+
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewConstructionDesign.ConstructionDesignType)
+                        @Html.TextBoxFor(Model => Model.NewConstructionDesign.ConstructionDesignType,
+                     new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewConstructionDesign.ConstructionDesignType"
+                              class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-lg" />
+                        <div class="btn btn-lg">
+                            @Html.ActionLink("Back to Construction Design", "Index")
+                        </div>
+
+                    </div>
+            }
+        </div>
+    </div>
+</div>

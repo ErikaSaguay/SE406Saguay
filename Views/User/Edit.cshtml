@@ -1,0 +1,50 @@
+﻿@model SE406_Saguay.UserViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "User", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewUser.FirstName)
+                    @Html.TextBoxFor(Model => Model.NewUser.FirstName,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewUser.FirstName"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewUser.LastName)
+                    @Html.TextBoxFor(Model => Model.NewUser.LastName,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewUser.LastName"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewUser.Email)
+                    @Html.TextBoxFor(Model => Model.NewUser.Email,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewUser.Email"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewUser.Password)
+                    @Html.TextBoxFor(Model => Model.NewUser.Password,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewUser.Password"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-lg" />
+                        <div class="btn btn-lg">
+                            @Html.ActionLink("Back to Users", "Index")
+                        </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

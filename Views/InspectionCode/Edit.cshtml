@@ -1,0 +1,36 @@
+﻿@model SE406_Saguay.InspectionCodeViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "InspectionCode", FormMethod.Post))
+            {
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewInspectionCode.InspectionCodeName)
+                        @Html.TextBoxFor(Model => Model.NewInspectionCode.InspectionCodeName,
+                     new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewInspectionCode.InspectionCodeName"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewInspectionCode.InspectoinCodeDesc)
+                        @Html.TextBoxFor(Model => Model.NewInspectionCode.InspectoinCodeDesc,
+                     new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewInspectionCode.InspectoinCodeDesc"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-lg" />
+                        <div class="btn btn-lg">
+                            @Html.ActionLink("Back to Inspection Code ", "Index")
+                        </div>
+
+                    </div>
+            }
+        </div>
+    </div>
+</div>

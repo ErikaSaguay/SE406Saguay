@@ -1,0 +1,93 @@
+﻿@model SE406_Saguay.MaintenanceRecordViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "MaintenanceRecord", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceActionId)
+                    <select asp-for="@Model.NewMaintenanceRecord.MaintenanceActionId"
+                            asp-items="@Model.MaintenanceActions" class="form-control">
+                        <option value="" selected>Choose Maintenance Actions</option>
+                    </select>
+                    <span asp-validation-for="@Model.NewMaintenanceRecord.MaintenanceActionId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.InspectorId)
+                    <select asp-for="@Model.NewMaintenanceRecord.InspectorId"
+                            asp-items="@Model.Inspectors" class="form-control">
+                        <option value="" selected>Choose Inspectors</option>
+                    </select>
+                    <span asp-validation-for="@Model.NewMaintenanceRecord.InspectorId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedStart)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedStart,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewMaintenanceRecord.MaintenanceProjectedStart"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedEnd)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedEnd,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewMaintenanceRecord.MaintenanceProjectedEnd"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceActualStart)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceActualStart,
+                 new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceActualEnd)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceActualEnd,
+                 new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedCost)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedCost,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewMaintenanceRecord.MaintenanceProjectedCost"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceActualCost)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceActualCost,
+                 new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceNotes)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceNotes,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewMaintenanceRecord.MaintenanceNotes"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.InspectorNotes)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.InspectorNotes,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewMaintenanceRecord.InspectorNotes"
+                          class="text-danger"></span>
+                </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-lg" />
+                        <div class="btn btn-lg">
+                            @Html.ActionLink("Back to Maintenance Record ", "Index")
+                        </div>
+
+                    </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model SE406_Saguay.InspectionCodeViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@if (TempData["ResultMessage"] != null)
+{
+    <p class="alert alert-success" id="successMessage">
+        @TempData["ResultMessage"]
+    </p>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "InspectionCode", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspectionCode.InspectionCodeName)
+                    @Html.TextBoxFor(Model => Model.NewInspectionCode.InspectionCodeName,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspectionCode.InspectionCodeName"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspectionCode.InspectoinCodeDesc)
+                    @Html.TextBoxFor(Model => Model.NewInspectionCode.InspectoinCodeDesc,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspectionCode.InspectoinCodeDesc"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2> List of Inspection Codes:</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>InspectionCodeId</th>
+                        <th>InspectionCodeName</th>
+                        <th>InspectoinCodeDesc</th>
+
+                    </tr>
+                    @foreach (var inspecCode in Model.InspectionCodeList)
+                    {
+                        <tr>
+                            <td>@inspecCode.InspectionCodeId</td>
+                            <td>@inspecCode.InspectionCodeName</td>
+                            <td>@inspecCode.InspectoinCodeDesc</td>
+                            <td><a asp-action="Edit" asp-route-id="@inspecCode.InspectionCodeId">Edit</a></td>
+                            <td><a asp-action="Delete" asp-route-id="@inspecCode.InspectionCodeId" onclick='return confirm("Are your sure?");'>Delete</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+

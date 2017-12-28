@@ -1,0 +1,129 @@
+﻿@model SE406_Saguay.BridgeViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "Bridge", FormMethod.Post))
+            {
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.MaterialDesignId)
+                        <select asp-for="@Model.NewBridge.MaterialDesignId"
+                                asp-items="@Model.MaterialDesigns" class="form-control">
+                            <option value="" selected>Choose Material Id</option>
+                        </select>
+                        <span asp-validation-for="@Model.NewBridge.MaterialDesignId"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.ConstructionDesignId)
+                        <select asp-for="@Model.NewBridge.ConstructionDesignId"
+                                asp-items="@Model.ConstructionDesigns" class="form-control">
+                            <option value="" selected>Choose Construction Design</option>
+                        </select>
+                        <span asp-validation-for="@Model.NewBridge.ConstructionDesignId"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.StatusId)
+                        <select asp-for="@Model.NewBridge.StatusId"
+                                asp-items="@Model.StatusCodes" class="form-control">
+                            <option value="" selected>Choose Status Code</option>
+                        </select>
+                        <span asp-validation-for="@Model.NewBridge.StatusId"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.CountyId)
+                        <select asp-for="@Model.NewBridge.CountyId"
+                                asp-items="@Model.Counties" class="form-control">
+                            <option value="" selected>Choose County Id</option>
+                        </select>
+                        <span asp-validation-for="@Model.NewBridge.CountyId"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.NbiNumber)
+                        @Html.TextBoxFor(Model => Model.NewBridge.NbiNumber,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.NbiNumber"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.Rating)
+                        @Html.TextBoxFor(Model => Model.NewBridge.Rating,
+                 new { @class = "form-control" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.RouteNumber)
+                        @Html.TextBoxFor(Model => Model.NewBridge.RouteNumber,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.RouteNumber"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.City)
+                        @Html.TextBoxFor(Model => Model.NewBridge.City,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.City"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.IntersectingFeature)
+                        @Html.TextBoxFor(Model => Model.NewBridge.IntersectingFeature,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.IntersectingFeature"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.CarriedFeature)
+                        @Html.TextBoxFor(Model => Model.NewBridge.CarriedFeature,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.CarriedFeature"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.Location)
+                        @Html.TextBoxFor(Model => Model.NewBridge.Location,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.Location"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.Built)
+                        @Html.TextBoxFor(Model => Model.NewBridge.Built,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.Built"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.Reconstructed)
+                        @Html.TextBoxFor(Model => Model.NewBridge.Reconstructed,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.Reconstructed"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.NewBridge.TotalLength)
+                        @Html.TextBoxFor(Model => Model.NewBridge.TotalLength,
+                 new { @class = "form-control" })
+                        <span asp-validation-for="@Model.NewBridge.TotalLength"
+                              class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-lg" />
+                        <div class="btn btn-lg">
+                            @Html.ActionLink("Back to Bridges", "Index")
+                        </div>
+
+                    </div>
+            }
+        </div>
+    </div>
+</div>
+

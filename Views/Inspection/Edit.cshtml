@@ -1,0 +1,81 @@
+﻿@model SE406_Saguay.InspectionViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "Inspection", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.BridgeId)
+                    <select asp-for="@Model.NewInspection.BridgeId"
+                            asp-items="@Model.Bridges" class="form-control">
+                        <option value="" selected>Choose Bridge Id</option>
+                    </select>
+                    <span asp-validation-for="@Model.NewInspection.SuperstructureInspectionCodeId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.InspectorId)
+                    <select asp-for="@Model.NewInspection.InspectorId"
+                            asp-items="@Model.Inspectors" class="form-control">
+                        <option value="" selected>Choose Inspector</option>
+                    </select>
+                    <span asp-validation-for="@Model.NewInspection.InspectorId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.InspectionDate)
+                    @Html.TextBoxFor(Model => Model.NewInspection.InspectionDate,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspection.InspectionDate"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.DeckInspectionCodeId)
+                    <select asp-for="@Model.NewInspection.DeckInspectionCodeId"
+                            asp-items="@Model.DeckInspectionCodes" class="form-control">
+                        <option value="" selected>Choose Inspection Code</option>
+                    </select>
+                    <span asp-validation-for="@Model.NewInspection.DeckInspectionCodeId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.SuperstructureInspectionCodeId)
+                    <select asp-for="@Model.NewInspection.SuperstructureInspectionCodeId"
+                            asp-items="@Model.SuperstructureInspectionCodes" class="form-control">
+                        <option value="" selected>Choose Superstructure Code</option>
+                    </select>
+                    <span asp-validation-for="@Model.NewInspection.SuperstructureInspectionCodeId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.SubstructureInspectionCodeId)
+                    <select asp-for="@Model.NewInspection.SubstructureInspectionCodeId"
+                            asp-items="@Model.SubstructureInspectionCodes" class="form-control">
+                        <option value="" selected>Choose Substructure Code</option>
+                    </select>
+                    <span asp-validation-for="@Model.NewInspection.SubstructureInspectionCodeId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.InspectionNotes)
+                    @Html.TextBoxFor(Model => Model.NewInspection.InspectionNotes,
+                 new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspection.InspectionNotes"
+                          class="text-danger"></span>
+                </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-lg" />
+                        <div class="btn btn-lg">
+                            @Html.ActionLink("Back to Inspection ", "Index")
+                        </div>
+
+                    </div>
+            }
+        </div>
+    </div>
+</div>
